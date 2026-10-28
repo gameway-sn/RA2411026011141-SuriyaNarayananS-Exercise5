@@ -1,0 +1,10 @@
+{
+  "studentName": "Ram Prasath N",
+  "regNo": "RA2411026011139",
+  "hostelBlock": "Block A",
+  "outDate": "2026-10-31",
+  "returnDate": "2026-11-02",
+  "parentPhone": "9876543210",
+  "purpose": "Family function",
+  "escalateAfter": "PT2M"
+}

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: outpass-workflow
+  config:
+    # Real credentials live in camunda-credentials.yaml next to pom.xml.
+    # That file is git-ignored, so the client secret never reaches GitHub.
+    import: optional:file:./camunda-credentials.yaml
+
+server:
+  port: 8080
+  error:
+    include-message: always   # show validation messages in 400 responses
+
+camunda:
+  client:
+    mode: saas
+    auth:
+      client-id: ${CAMUNDA_CLIENT_ID:}
+      client-secret: ${CAMUNDA_CLIENT_SECRET:}
+    cloud:
+      cluster-id: ${CAMUNDA_CLUSTER_ID:}
+      region: ${CAMUNDA_CLUSTER_REGION:}
+
+outpass:
+  # How long the warden has before the request escalates to the Chief Warden.
+  # A single request can override it with "escalateAfter" (e.g. PT2M for a demo).
+  escalate-after: ${OUTPASS_ESCALATE_AFTER:PT24H}
